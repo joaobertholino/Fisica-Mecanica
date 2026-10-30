@@ -15,9 +15,7 @@ Acesse `http://localhost:8000`. Para testar num celular na mesma rede, acesse `h
 
 ## GitHub Pages
 
-Envie **o conteúdo desta pasta**, incluindo `downloads/` e `.nojekyll`, para um repositório. Configure o GitHub Pages para publicar a raiz da branch que contém os arquivos. Não é necessário compilar o site. Todos os caminhos de recursos são relativos, inclusive os downloads, para funcionar também em `usuario.github.io/nome-do-repositorio/`.
-
-Este projeto foi preparado localmente; nenhuma publicação ou criação de repositório foi feita.
+O workflow em `.github/workflows/pages.yml` publica automaticamente a raiz do repositório no GitHub Pages a cada atualização da branch `main`. Não é necessário compilar o site. Todos os caminhos de recursos são relativos, inclusive os downloads, para funcionar também em `usuario.github.io/nome-do-repositorio/`.
 
 ## Conteúdo e controles
 
