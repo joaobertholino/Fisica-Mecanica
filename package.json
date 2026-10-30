@@ -1,0 +1,14 @@
+{
+  "name": "laboratorio-mecanica",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Laboratório estático de Física I com 30 experimentos",
+  "scripts": {
+    "test": "node tests/validate.cjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "3.5.3"
+  }
+}

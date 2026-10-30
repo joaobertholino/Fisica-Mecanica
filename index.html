@@ -1,37 +1,148 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#101c24">
-  <meta name="description" content="Um laboratório interativo de Física I: explore movimento, forças, energia e rotação com animações e explicações intuitivas.">
-  <title>Mecânica — laboratório de Física I</title>
-  <link rel="stylesheet" href="./vendor/katex/katex.min.css"><link rel="stylesheet" href="./styles.css"><script src="./theme.js"></script><script src="./vendor/katex/katex.min.js" defer></script><script src="./math.js" defer></script><script src="./experiments.js" defer></script><script src="./app.js" defer></script>
-</head>
-<body>
-<a class="skip" href="#laboratorio">Ir para o laboratório</a>
-<aside class="sidebar">
-  <a class="brand" href="./"><span class="brand-mark">m<span>·</span>a</span><span>MECÂNICA<small>LABORATÓRIO INTERATIVO</small></span></a>
-  <div class="nav-heading">EXPLORE OS CONCEITOS <span>10</span></div>
-  <nav id="concept-menu" aria-label="Conceitos de física"></nav>
-  <div class="sidebar-note"><span class="book-icon">▤</span><div>Da teoria ao movimento<small>Referência: Young & Freedman<br>Física I · Mecânica · 14ª edição</small></div></div>
-</aside>
-<main id="laboratorio">
-  <header class="topbar"><span>FÍSICA I <span class="slash">/</span> UM LABORATÓRIO PARA EXPLORAR</span><button id="theme-toggle" type="button" aria-pressed="false">◐ Modo escuro</button></header>
-  <section class="intro"><div class="eyebrow" id="chapter"></div><h1 id="title"></h1><p id="subtitle"></p></section>
-  <div class="experiment-picker"><label for="experiment-select">ESCOLHA UMA ANIMAÇÃO</label><select id="experiment-select" aria-label="Animação do conceito"></select><span>3 experimentos por conceito · 30 no total</span></div>
-  <section class="experiment" aria-label="Simulação interativa">
-    <div class="scene-column">
-      <div class="scene-top"><span><i class="status-dot"></i> <span id="status">Simulação em andamento</span></span><span id="time">t = 0,00 s</span><button id="fullscreen" type="button" aria-label="Abrir animação em tela cheia" aria-pressed="false">⛶ Tela cheia</button></div>
-      <div class="canvas-wrap"><canvas id="scene" width="900" height="460" role="img" aria-label="Animação do conceito físico selecionado"></canvas></div>
-      <div class="legend" id="legend"></div>
-      <div class="transport"><button id="play" class="primary" aria-label="Pausar animação">Ⅱ <span>Pausar</span></button><button id="reset" title="Reiniciar simulação">↺ <span>Reiniciar</span></button><label class="speed">Velocidade <select id="speed" aria-label="Velocidade da animação"><option value="0.25">0,25×</option><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div>
-    </div>
-    <aside class="controls"><div class="control-heading">Ajuste o experimento <span>↗</span></div><p class="controls-hint">Mova os controles e observe o que muda.</p><div id="sliders"></div><div class="experiment-tip"><span>EXPERIMENTE</span><p id="tip"></p></div></aside>
-  </section>
-  <section class="readings" id="readings" aria-label="Valores instantâneos"></section>
-  <section class="explanation" aria-labelledby="understand"><article><div class="eyebrow">POR TRÁS DO MOVIMENTO</div><h2 id="understand">Entenda a ideia</h2><div id="explanation"></div><div class="assumption"><strong>O modelo desta simulação</strong><p id="assumptions"></p></div></article><aside class="equations"><div class="eyebrow">A LINGUAGEM DA FÍSICA</div><h2>Da intuição à equação</h2><div id="formulas"></div><p id="variables"></p></aside></section>
-  <section class="derivations" aria-labelledby="derivation-title"><div class="eyebrow">DE ONDE VÊM AS EQUAÇÕES</div><h2 id="derivation-title">Dedução, passo a passo</h2><p class="derivation-intro">Abra uma fórmula para acompanhar o raciocínio. Definições e leis empíricas são identificadas como tais; os resultados derivados indicam as hipóteses utilizadas.</p><div id="derivation-list"></div></section>
-  <section class="downloads" aria-label="Material para baixar"><div><h2>Continue aprendendo no papel.</h2><p>Caderno ampliado: teoria, deduções, exemplos resolvidos e roteiros para os 30 experimentos.</p></div><div class="download-links"><a href="./downloads/resumo-mecanica.pdf" download>↓ Baixar PDF</a><a class="secondary" href="./downloads/resumo-mecanica.tex" download>Fonte LaTeX</a></div></section>
-  <footer><span>Mecânica <span class="footer-dot">·</span> Explore. Observe. Entenda.</span><span id="reference"></span></footer>
-</main>
-</body></html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#101c24" />
+    <meta
+      name="description"
+      content="Um laboratório interativo de Física I: explore movimento, forças, energia e rotação com animações e explicações intuitivas."
+    />
+    <title>Mecânica — laboratório de Física I</title>
+    <link rel="stylesheet" href="./vendor/katex/katex.min.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./theme.js"></script>
+    <script src="./vendor/katex/katex.min.js" defer></script>
+    <script src="./math.js" defer></script>
+    <script src="./experiments.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#laboratorio">Ir para o laboratório</a>
+    <aside class="sidebar">
+      <a class="brand" href="./"
+        ><span class="brand-mark">m<span>·</span>a</span
+        ><span>MECÂNICA<small>LABORATÓRIO INTERATIVO</small></span></a
+      >
+      <div class="nav-heading">EXPLORE OS CONCEITOS <span>10</span></div>
+      <nav id="concept-menu" aria-label="Conceitos de física"></nav>
+      <div class="sidebar-note">
+        <span class="book-icon">▤</span>
+        <div>
+          Da teoria ao movimento<small
+            >Referência: Young & Freedman<br />Física I · Mecânica · 14ª edição</small
+          >
+        </div>
+      </div>
+    </aside>
+    <main id="laboratorio">
+      <header class="topbar">
+        <span>FÍSICA I <span class="slash">/</span> UM LABORATÓRIO PARA EXPLORAR</span
+        ><button id="theme-toggle" type="button" aria-pressed="false">◐ Modo escuro</button>
+      </header>
+      <section class="intro">
+        <div class="eyebrow" id="chapter"></div>
+        <h1 id="title"></h1>
+        <p id="subtitle"></p>
+      </section>
+      <div class="experiment-picker">
+        <label for="experiment-select">ESCOLHA UMA ANIMAÇÃO</label
+        ><select id="experiment-select" aria-label="Animação do conceito"></select
+        ><span>3 experimentos por conceito · 30 no total</span>
+      </div>
+      <section class="experiment" aria-label="Simulação interativa">
+        <div class="scene-column">
+          <div class="scene-top">
+            <span><i class="status-dot"></i> <span id="status">Simulação em andamento</span></span
+            ><span id="time">t = 0,00 s</span
+            ><button
+              id="fullscreen"
+              type="button"
+              aria-label="Abrir animação em tela cheia"
+              aria-pressed="false"
+            >
+              ⛶ Tela cheia
+            </button>
+          </div>
+          <div class="canvas-wrap">
+            <canvas
+              id="scene"
+              width="900"
+              height="460"
+              role="img"
+              aria-label="Animação do conceito físico selecionado"
+            ></canvas>
+          </div>
+          <div class="legend" id="legend"></div>
+          <div class="transport">
+            <button id="play" class="primary" aria-label="Pausar animação">
+              Ⅱ <span>Pausar</span></button
+            ><button id="reset" title="Reiniciar simulação">↺ <span>Reiniciar</span></button
+            ><label class="speed"
+              >Velocidade
+              <select id="speed" aria-label="Velocidade da animação">
+                <option value="0.25">0,25×</option>
+                <option value="0.5">0,5×</option>
+                <option value="1" selected>1×</option>
+                <option value="2">2×</option>
+              </select></label
+            >
+          </div>
+        </div>
+        <aside class="controls">
+          <div class="control-heading">Ajuste o experimento <span>↗</span></div>
+          <p class="controls-hint">Mova os controles e observe o que muda.</p>
+          <div id="sliders"></div>
+          <div class="experiment-tip">
+            <span>EXPERIMENTE</span>
+            <p id="tip"></p>
+          </div>
+        </aside>
+      </section>
+      <section class="readings" id="readings" aria-label="Valores instantâneos"></section>
+      <section class="explanation" aria-labelledby="understand">
+        <article>
+          <div class="eyebrow">POR TRÁS DO MOVIMENTO</div>
+          <h2 id="understand">Entenda a ideia</h2>
+          <div id="explanation"></div>
+          <div class="assumption">
+            <strong>O modelo desta simulação</strong>
+            <p id="assumptions"></p>
+          </div>
+        </article>
+        <aside class="equations">
+          <div class="eyebrow">A LINGUAGEM DA FÍSICA</div>
+          <h2>Da intuição à equação</h2>
+          <div id="formulas"></div>
+          <p id="variables"></p>
+        </aside>
+      </section>
+      <section class="derivations" aria-labelledby="derivation-title">
+        <div class="eyebrow">DE ONDE VÊM AS EQUAÇÕES</div>
+        <h2 id="derivation-title">Dedução, passo a passo</h2>
+        <p class="derivation-intro">
+          Abra uma fórmula para acompanhar o raciocínio. Definições e leis empíricas são
+          identificadas como tais; os resultados derivados indicam as hipóteses utilizadas.
+        </p>
+        <div id="derivation-list"></div>
+      </section>
+      <section class="downloads" aria-label="Material para baixar">
+        <div>
+          <h2>Continue aprendendo no papel.</h2>
+          <p>
+            Caderno ampliado: teoria, deduções, exemplos resolvidos e roteiros para os 30
+            experimentos.
+          </p>
+        </div>
+        <div class="download-links">
+          <a href="./downloads/resumo-mecanica.pdf" download>↓ Baixar PDF</a
+          ><a class="secondary" href="./downloads/resumo-mecanica.tex" download>Fonte LaTeX</a>
+        </div>
+      </section>
+      <footer>
+        <span>Mecânica <span class="footer-dot">·</span> Explore. Observe. Entenda.</span
+        ><span id="reference"></span>
+      </footer>
+    </main>
+  </body>
+</html>

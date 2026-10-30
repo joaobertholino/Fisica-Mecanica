@@ -20,7 +20,7 @@
 {\Huge\bfseries\color{ink}A mecânica,\\passo a passo.}\par
 {\large Intuição, equações e exercícios resolvidos}\par
 \vspace{6pt}
-Este caderno acompanha as dez experiências do site. O conteúdo foi organizado a partir de \emph{Física I: Mecânica}, de Hugh D. Young e Roger A. Freedman, 14ª edição, Pearson, 2016. As explicações e soluções foram redigidas para este material; os cinco exemplos adaptados têm sua origem identificada. As páginas citadas são as páginas impressas do livro.
+Este caderno acompanha os dez temas e trinta experimentos do site. Além da síntese inicial, inclui dez seções de teoria com deduções, cinco exemplos adaptados do livro e cinco exercícios adicionais do laboratório. O conteúdo foi organizado a partir de \emph{Física I: Mecânica}, de Hugh D. Young e Roger A. Freedman, 14ª edição, Pearson, 2016. As explicações e soluções foram redigidas para este material; exemplos adaptados e exercícios adicionais são identificados separadamente. As páginas citadas são as páginas impressas do livro.
 
 \topic{1 / Vetores e movimento}{Um vetor reúne módulo, direção e sentido. Em uma base cartesiana ortogonal, cada componente representa uma projeção independente.}
 \[
@@ -69,6 +69,300 @@ Em colisões elásticas, a energia cinética também se conserva. Em colisões p
 Na lei de Hooke, $F_x=-kx$: a força restauradora se opõe à deformação. A animação de elasticidade representa equilíbrios sob carregamento lento, não uma oscilação livre.
 
 \textbf{Unidades SI:} posição em m; tempo em s; massa em kg; força em N; energia em J; torque em N\,m; ângulo em rad. Os exercícios seguintes usam $g=9{,}80\,\mathrm{m/s^2}$, como nos exemplos do livro. O site usa $9{,}81\,\mathrm{m/s^2}$; pequenas diferenças numéricas são esperadas.
+
+\newpage
+\exercise{Teoria 1 / Vetores}{Componentes, soma e produto escalar}
+\textbf{O que é um vetor?} Um vetor geométrico representa uma grandeza com módulo, direção e sentido. Mudar o ponto onde a seta está desenhada não muda um vetor livre. Isso permite transportar uma seta e somá-la a outra pelo método ponta--cauda. Nem toda grandeza com três números é automaticamente um vetor físico: suas componentes devem se transformar coerentemente quando os eixos mudam.
+
+\topic{Uma base permite reconstruir o vetor}{Em uma base ortonormal, os vetores unitários têm módulo um, produtos escalares nulos entre direções distintas e produto consigo mesmos igual a um. Assim,}
+\[
+\vec A=A_x\hat\imath+A_y\hat\jmath+A_z\hat k,\qquad
+A_x=\vec A\cdot\hat\imath.
+\]
+As outras componentes são obtidas da mesma maneira. Expandir $\vec A\cdot\vec A$ elimina os termos cruzados e dá
+\[
+|\vec A|^2=A_x^2+A_y^2+A_z^2.
+\]
+\topic{Por que somamos componente a componente?}{Cada eixo corresponde a uma direção independente. Portanto,}
+\[
+\vec R=\vec A+\vec B
+=(A_x+B_x)\hat\imath+(A_y+B_y)\hat\jmath+(A_z+B_z)\hat k.
+\]
+A diagonal do paralelogramo e o método ponta--cauda representam essa mesma operação. Em geral, $|\vec A+\vec B|$ não é igual a $|\vec A|+|\vec B|$; essa igualdade exige vetores paralelos de mesmo sentido.
+
+\topic{Produto escalar: a componente que contribui}{Escolha um eixo na direção de $\vec A$. Nesse eixo, $\vec B$ tem componente $B\cos\theta$. Multiplicando pela intensidade de $\vec A$, obtemos}
+\[
+\vec A\cdot\vec B=AB\cos\theta,
+\qquad B_\parallel=B\cos\theta.
+\]
+O produto é positivo para um ângulo agudo, nulo para $90^\circ$ e negativo para um ângulo obtuso. A projeção tem sinal; não confunda sua componente com um módulo sempre positivo. Se ambos os vetores têm unidade de metro, o produto escalar tem unidade $\mathrm{m^2}$.
+
+\textbf{Experimente no site.} (1) Construa um vetor pelas componentes. (2) Transporte um segundo vetor até a ponta do primeiro. (3) Ajuste o ângulo entre dois vetores e acompanhe a projeção. A câmera muda a aparência das setas, mas não seus módulos nem seu produto escalar.
+
+\newpage
+\exercise{Teoria 2 / Cinemática retilínea}{De taxas de variação a posições}
+\textbf{Antes de calcular.} Escolha uma origem, o sentido positivo do eixo e o instante inicial. Deslocamento é $\Delta x=x_f-x_i$, enquanto distância percorrida soma comprimentos e nunca é negativa. Velocidade média é $\Delta x/\Delta t$; rapidez média usa a distância total no numerador.
+
+\topic{Integrando a aceleração}{Para aceleração constante,}
+\[
+a=\frac{dv}{dt}\quad\Longrightarrow\quad
+\int_{v_0}^{v(t)}du=\int_0^t a\,ds
+\quad\Longrightarrow\quad v=v_0+at.
+\]
+Como $v=dx/dt$, uma segunda integração dá
+\[
+x-x_0=\int_0^t(v_0+as)\,ds=v_0t+\frac{at^2}{2}.
+\]
+O termo $v_0t$ é o deslocamento que ocorreria sem aceleração. O termo $at^2/2$ representa o acréscimo, com sinal, produzido pela aceleração.
+
+\topic{Uma equação sem o tempo}{Pela regra da cadeia, $a=(dv/dx)(dx/dt)=v\,dv/dx$. Para $a$ constante, integre $a\,dx=v\,dv$:}
+\[
+a(x-x_0)=\tfrac12(v^2-v_0^2)
+\quad\Longrightarrow\quad v^2=v_0^2+2a(x-x_0).
+\]
+Essa forma é útil quando a distância é conhecida, mas o tempo não. Nas expressões com $v^2$, a escolha do sinal da velocidade final ainda depende do sentido físico do movimento.
+
+\topic{Encontro e queda livre}{Dois móveis que se aproximam com rapidezes constantes satisfazem $x_A=v_At$ e $x_B=L-v_Bt$. Igualando as posições, $t_e=L/(v_A+v_B)$. Para movimentos no mesmo sentido, a velocidade relativa envolve a diferença, não a soma das rapidezes.}
+
+Na queda livre no vácuo, $ma_y=-mg$, portanto $a_y=-g$: a massa cancela. Se o corpo é solto da altura $h$, $y=h-gt^2/2$ e $v_y=-gt$. Resolver $y(T)=0$ fornece $T=\sqrt{2h/g}$.
+
+\textbf{Leia os gráficos.} A inclinação de $x(t)$ é a velocidade. A inclinação de $v(t)$ é a aceleração; a área com sinal sob $v(t)$ é o deslocamento. No site, compare movimento acelerado, encontro em MRU e queda de massas diferentes. Não aplique as fórmulas de aceleração constante a situações em que ela varia com o tempo.
+
+\newpage
+\exercise{Teoria 3 / Projéteis}{Independência das componentes}
+Sem resistência do ar, a única aceleração é vertical: $\vec a=(0,-g,0)$. Isso não torna a trajetória vertical, porque o corpo pode já ter velocidade horizontal. Integrar as componentes separadamente é mais simples do que tentar descrever a curva inteira de uma só vez.
+
+\topic{Equações a partir das condições iniciais}{Escolha o plano do lançamento como $xy$, com $y$ para cima. Para rapidez inicial $v_0$ e elevação $\theta$,}
+\[
+v_{0x}=v_0\cos\theta,\qquad v_{0y}=v_0\sin\theta.
+\]
+Integre $a_x=0$ e $a_y=-g$, primeiro para obter as velocidades e depois as posições:
+\[
+x=x_0+v_0\cos\theta\,t,\qquad
+y=y_0+v_0\sin\theta\,t-\tfrac12gt^2.
+\]
+No espaço, a direção horizontal pode ter azimute $\phi$. Se $\rho$ é a distância horizontal a partir da origem, $x=\rho\cos\phi$ e $z=\rho\sin\phi$. Girar o plano de lançamento não altera o tempo de voo em um campo gravitacional vertical uniforme.
+
+\topic{Tempo de voo, altura máxima e alcance}{Se a chegada ocorre no nível inicial, fatorar $y-y_0=0$ fornece as raízes $t=0$ e}
+\[
+T=\frac{2v_0\sin\theta}{g}.
+\]
+No topo, $v_y=0$, logo $t_{\rm topo}=v_0\sin\theta/g$. Substituindo na posição e no alcance, respectivamente:
+\[
+H=\frac{v_0^2\sin^2\theta}{2g},\qquad
+R=v_0\cos\theta\,T=\frac{v_0^2\sin(2\theta)}{g}.
+\]
+O maior alcance ocorre a $45^\circ$ somente sob essas hipóteses. Ângulos complementares têm o mesmo alcance porque $\sin(180^\circ-2\theta)=\sin(2\theta)$, mas não a mesma altura máxima.
+
+\topic{Lançamento horizontal}{Com altura inicial $h$ e velocidade vertical inicial nula, $T=\sqrt{2h/g}$. A distância horizontal é $R=v_0T$. Uma segunda bola simplesmente solta da mesma altura chega junto: ambas obedecem à mesma equação vertical.}
+
+\textbf{Erro frequente.} No topo, a velocidade total não é zero em um lançamento oblíquo: apenas a componente vertical se anula. Quando a chegada é em altura diferente, resolva a equação vertical completa; não use automaticamente o alcance acima.
+
+\newpage
+\exercise{Teoria 4 / Movimento circular}{Mudar direção também é acelerar}
+A velocidade é um vetor. Portanto, manter sua intensidade constante não basta para manter o vetor constante: sua direção também precisaria permanecer igual. Na circunferência, a direção tangente muda continuamente.
+
+\topic{Uma dedução vetorial da aceleração centrípeta}{Em uma órbita de raio $r$ no plano $xz$, escreva}
+\[
+\vec r(t)=r(\cos\omega t,0,\sin\omega t).
+\]
+Diferenciando duas vezes, com $\omega$ constante,
+\[
+\vec v=r\omega(-\sin\omega t,0,\cos\omega t),\qquad
+\vec a=-\omega^2\vec r.
+\]
+A aceleração aponta para o centro, porque é oposta ao vetor posição medido a partir dele. Os módulos são $v=r\omega$ e $a_c=r\omega^2=v^2/r$. Uma volta corresponde ao arco $2\pi r$, então $T=2\pi r/v$.
+
+\topic{Compare órbitas corretamente}{Se a rapidez linear é a mesma, reduzir o raio aumenta $a_c=v^2/r$. Mas, se a velocidade angular é a mesma, aumentar o raio aumenta $a_c=r\omega^2$. As conclusões parecem opostas porque se mantém fixa uma grandeza diferente em cada comparação.}
+
+Na animação de órbitas concêntricas, a rapidez é comum e o raio interno vale metade do externo. Assim, a aceleração interna é o dobro e o período interno é a metade do externo.
+
+\topic{Se a rapidez também muda}{O vetor aceleração tem duas componentes perpendiculares. A tangencial modifica a rapidez; a radial acompanha a curvatura:}
+\[
+a_t=\frac{dv}{dt}=r\alpha,\qquad a_r=\frac{v^2}{r}=r\omega^2,
+\qquad |\vec a|=\sqrt{a_t^2+a_r^2}.
+\]
+Para aceleração angular constante e repouso inicial, integrar $\alpha=d\omega/dt$ dá $\omega=\alpha t$, e integrar $\omega=d\theta/dt$ dá $\theta=\alpha t^2/2$.
+
+\textbf{Não invente uma força extra.} ``Centrípeta'' descreve a direção da resultante radial. Em uma situação concreta, essa resultante pode ser produzida pela tensão, gravidade, normal ou atrito. Primeiro identifique as forças reais; depois imponha $\sum F_r=mv^2/r$.
+
+\newpage
+\exercise{Teoria 5 / Forças e vínculos}{Atrito, rampa e máquina de Atwood}
+A segunda lei $\sum\vec F=m\vec a$ é um princípio físico da mecânica clássica para massa constante, não uma identidade matemática obtida de uma definição. Ela relaciona interações à mudança do movimento. Comece sempre identificando qual corpo está sendo analisado.
+
+\topic{O que se equilibra no plano horizontal?}{Se não existe aceleração vertical nem outras forças verticais, $N-mg=0$, portanto $N=mg$. Na horizontal, $F-f=ma$. O atrito estático se ajusta para impedir o início do deslizamento, até o limite $f_s\leq\mu_sN$. Durante o deslizamento, o modelo usual é $f_c=\mu_cN$. Essas relações de atrito são aproximações empíricas.}
+
+\topic{Rampa: decomponha o peso}{Escolha um eixo tangente à rampa, positivo para baixo, e outro normal ao plano. O peso tem componentes $mg\sin\theta$ e $mg\cos\theta$. Sem aceleração perpendicular,}
+\[
+N=mg\cos\theta.
+\]
+Para ficar parado, o bloco precisa de atrito $f_s=mg\sin\theta$, que só é possível se $mg\sin\theta\leq\mu_smg\cos\theta$, ou $\tan\theta\leq\mu_s$. Quando ele desliza para baixo,
+\[
+ma=mg\sin\theta-\mu_cmg\cos\theta
+\quad\Longrightarrow\quad a=g(\sin\theta-\mu_c\cos\theta).
+\]
+O site iguala $\mu_s$ e $\mu_c$ para isolar a ideia principal; isso não deve ser confundido com uma igualdade universal.
+
+\topic{Atwood: o vínculo do fio}{Com fio ideal e polia sem massa, as duas massas têm acelerações de mesmo módulo. Tome a esquerda positiva para cima e a direita positiva para baixo:}
+\[
+T-m_1g=m_1a,\qquad m_2g-T=m_2a.
+\]
+Somando as equações, a tensão desaparece:
+\[
+a=\frac{(m_2-m_1)g}{m_1+m_2},\qquad
+T=m_1(g+a)=\frac{2m_1m_2g}{m_1+m_2}.
+\]
+Se $m_2<m_1$, o sinal negativo de $a$ revela que o movimento ocorre no sentido oposto ao inicialmente escolhido. Não é preciso trocar as equações.
+
+\textbf{Conferência.} Para massas iguais, $a=0$ e $T=mg$. Para massas desiguais, a tensão não é igual a nenhum dos dois pesos. As forças de ação e reação pertencem a corpos diferentes; não se anulam no diagrama de um único corpo.
+
+\newpage
+\exercise{Teoria 6 / Energia}{Conservação e transformação}
+Trabalho mede a transferência de energia associada à ação de uma força durante um deslocamento. O produto escalar seleciona a componente da força na direção do deslocamento: $dW=\vec F\cdot d\vec r$. Uma força perpendicular ao movimento não realiza trabalho naquele instante.
+
+\topic{Dedução do teorema trabalho--energia}{Com massa constante, $\vec F_{\rm res}=m\,d\vec v/dt$ e $d\vec r=\vec v\,dt$. Logo,}
+\[
+W_{\rm res}=\int m\vec v\cdot d\vec v
+=\frac12mv_f^2-\frac12mv_i^2=\Delta K.
+\]
+Isso motiva $K=mv^2/2$, com referência nula no repouso. Para uma força conservativa, define-se a diferença de energia potencial por $\Delta U=-W$. Para a gravidade uniforme, integrar $dU=mg\,dy$ dá $U=mgy+C$; a constante define o nível de referência.
+
+\topic{Quando a energia mecânica se conserva?}{Se apenas forças conservativas realizam trabalho, $\Delta K=-\Delta U$, portanto $K+U$ é constante. Se houver outras forças,}
+\[
+\Delta(K+U)=W_{\rm n\tilde ao\ conservativo}.
+\]
+Essa equação não diz que energia desaparece: a energia mecânica pode ser transformada em outras formas, como energia interna.
+
+\topic{Mola ideal em movimento}{A lei de Hooke e Newton fornecem $m\ddot x=-kx$. A função $x=A\cos\omega t$ satisfaz essa equação se $\omega^2=k/m$. A condição inicial é alongamento $A$ com velocidade zero. Sua derivada é $v=-A\omega\sin\omega t$.}
+\[
+U=\tfrac12kA^2\cos^2\omega t,\quad K=\tfrac12kA^2\sin^2\omega t,
+\quad E=\tfrac12kA^2.
+\]
+A última igualdade usa $\sin^2+\cos^2=1$. Esse experimento é uma extensão dinâmica da lei de Hooke; o tratamento de movimento periódico é desenvolvido no volume seguinte da coleção.
+
+\topic{Atrito e distância de parada}{Em um plano horizontal, $a=-\mu g$. Integrando, $v=v_0-\mu gt$ e $x=v_0t-\mu gt^2/2$, até a parada. Pelo trabalho, $Q=\mu mgx=K_0-K$. Na parada,}
+\[
+\mu mgd=\tfrac12mv_0^2\quad\Longrightarrow\quad d=\frac{v_0^2}{2\mu g}.
+\]
+Dobrar a rapidez inicial quadruplica a distância de parada, mantidas as demais condições.
+
+\newpage
+\exercise{Teoria 7 / Momento e impulso}{Por que olhar o sistema inteiro?}
+O momento linear é definido por $\vec p=m\vec v$. Ao analisar uma interação rápida, pode ser difícil conhecer a força a cada instante. Integrar a força ao longo do tempo permite trabalhar com seu efeito acumulado.
+
+\topic{Impulso como área}{Da segunda lei, $\vec F=d\vec p/dt$. Integrando,}
+\[
+\vec J=\int_{t_i}^{t_f}\vec F\,dt=\vec p_f-\vec p_i.
+\]
+Para uma força constante, $J=F\Delta t$. Com massa constante, $\Delta v=J/m$. Um pulso mais intenso e mais curto pode produzir o mesmo impulso que outro mais fraco e mais longo.
+
+\topic{Conservação na colisão}{Ao somar as equações dos dois corpos, as forças internas se cancelam. Então $d\vec P/dt=\vec F_{\rm externa}$. Se o impulso externo é desprezível,}
+\[
+m_1u_1+m_2u_2=m_1v_1+m_2v_2.
+\]
+Essa única equação não determina duas velocidades finais sem uma condição adicional. Em uma dimensão, o coeficiente de restituição é definido por
+\[
+e=\frac{v_2-v_1}{u_1-u_2}.
+\]
+Ele mede a razão entre as velocidades relativas de afastamento e aproximação. Com $u_2=0$, resolver as duas equações dá
+\[
+v_1=\frac{m_1-em_2}{m_1+m_2}u_1,\qquad
+v_2=\frac{(1+e)m_1}{m_1+m_2}u_1.
+\]
+Para $e=1$, a colisão é elástica; para $e=0$, as velocidades finais são iguais. O momento se conserva nos dois casos, mas a energia cinética não precisa se conservar.
+
+\topic{Centro de massa}{Defina $x_{\rm CM}=(m_1x_1+m_2x_2)/(m_1+m_2)$. Diferenciando com massas constantes,}
+\[
+v_{\rm CM}=\frac{m_1v_1+m_2v_2}{m_1+m_2}=\frac{P}{M}.
+\]
+Se $P$ é constante, o centro de massa segue em MRU mesmo quando as velocidades individuais mudam bruscamente. A animação separa os trilhos apenas para deixar visíveis as três posições, usando a mesma coordenada horizontal.
+
+\textbf{Cuidado com sinais.} Use velocidades algébricas no mesmo eixo. A soma dos módulos dos momentos não é, em geral, o módulo do momento total.
+
+\newpage
+\exercise{Teoria 8 / Rotação}{Distribuição de massa e movimento angular}
+O arco percorrido por um ponto a distância $r$ do eixo é $s=r\theta$, com $\theta$ em radianos. Diferenciando, $v=r\omega$ e $a_t=r\alpha$. Pontos de um corpo rígido têm a mesma velocidade angular, mas os mais distantes do eixo têm maior rapidez linear.
+
+\topic{Momento de inércia e torque}{O torque tangencial de uma massa pontual é $r(ma_t)=mr^2\alpha$. Somando as contribuições, $\tau=I\alpha$, onde $I=\sum mr^2$ ou, para distribuição contínua, $I=\int r^2dm$.}
+
+Para um disco uniforme, $\sigma=m/(\pi R^2)$ e um anel tem $dm=2\pi\sigma r\,dr$. Portanto,
+\[
+I=2\pi\sigma\int_0^Rr^3dr=\frac{\pi\sigma R^4}{2}=\frac12mR^2.
+\]
+Somar as energias cinéticas de seus elementos dá $K=\int(r\omega)^2dm/2=I\omega^2/2$. Sob torque constante e partindo do repouso, $\omega=\alpha t$ e $\theta=\alpha t^2/2$.
+
+\topic{Rolamento sem deslizamento}{O comprimento desenrolado da roda é igual ao avanço do centro: $x_{\rm CM}=R\theta$. Logo $v_{\rm CM}=R\omega$. Um ponto da borda que parte do contato tem posição relativa ao centro $(-R\sin\theta,-R\cos\theta)$. Some a posição do centro $(R\theta,R)$:}
+\[
+x=R(\theta-\sin\theta),\qquad y=R(1-\cos\theta).
+\]
+Essa curva é uma cicloide. No contato, a velocidade de rotação relativa ao centro cancela instantaneamente a velocidade de translação. O ponto não permanece parado: logo deixa o contato.
+
+\topic{Conservação do momento angular}{Para um eixo fixo sem torque externo, $dL/dt=0$. Duas massas iguais a distância $r$ têm $I=2mr^2$ e $L=I\omega$. Assim,}
+\[
+I_i\omega_i=I_f\omega_f\quad\Longrightarrow\quad
+\omega_f=\frac{I_i}{I_f}\omega_i.
+\]
+Se o raio cai pela metade, $I$ cai para um quarto e $\omega$ quadruplica. A energia cinética aumenta: o mecanismo que aproxima as massas realiza trabalho. Conservar momento angular não implica conservar energia cinética quando a distribuição de massa muda.
+
+\textbf{No site.} Compare disco sob torque, roda em rolamento e contração radial. São três situações com hipóteses distintas; não aplique o vínculo de rolamento ao disco de eixo fixo.
+
+\newpage
+\exercise{Teoria 9 / Equilíbrio}{Forças e torques devem se compensar}
+Equilíbrio estático exige acelerações translacional e angular nulas. Pelas equações de Newton e de rotação, $\sum\vec F=0$ e $\sum\vec\tau=0$. Essas condições são independentes: um par de forças opostas pode ter resultante nula e ainda produzir rotação.
+
+\topic{Alavanca e braço perpendicular}{O torque tem módulo $\tau=rF\sin\phi=Fd_\perp$. O braço é a distância perpendicular entre o eixo e a linha de ação da força; não é necessariamente o comprimento da barra. Para pesos em uma barra horizontal, adotando anti-horário positivo,}
+\[
+\tau_{\rm cargas}=m_1gd_1-m_2gd_2.
+\]
+Quando a soma não é zero na primeira animação, o suporte ideal aplica o torque oposto para manter a barra horizontal. A cena compara torques, não simula a queda de uma gangorra livre.
+
+\topic{Viga em dois apoios}{Considere viga sem massa de comprimento $L$, carga $mg$ a distância $x$ do apoio esquerdo, e reações verticais $R_A$ e $R_B$. O equilíbrio vertical dá}
+\[
+R_A+R_B=mg.
+\]
+Escolher o apoio esquerdo como origem dos torques elimina $R_A$ dessa equação:
+\[
+R_BL-mgx=0\quad\Longrightarrow\quad R_B=\frac{mgx}{L}.
+\]
+Substituindo na soma das forças, $R_A=mg(1-x/L)$. Para $x=L/2$, as reações são iguais. Para $x$ próximo de um apoio, esse apoio sustenta uma fração maior do peso.
+
+\topic{Dois cabos simétricos}{Se cada cabo faz ângulo $\theta$ com a horizontal, as componentes horizontais das tensões iguais se cancelam: $T\cos\theta-T\cos\theta=0$. Na vertical,}
+\[
+2T\sin\theta=mg\quad\Longrightarrow\quad T=\frac{mg}{2\sin\theta}.
+\]
+Quando os cabos ficam quase horizontais, $\sin\theta$ é pequeno e a tensão necessária fica muito grande. O modelo ideal não inclui resistência de ruptura nem peso dos cabos.
+
+\textbf{Estratégia de solução.} Desenhe as forças, escolha um ponto de cálculo dos torques que elimine incógnitas e mantenha a mesma convenção de sinais. No final, confirme tanto a soma das forças quanto a soma dos torques.
+
+\newpage
+\exercise{Teoria 10 / Elasticidade}{Uma lei local, três montagens}
+A lei de Hooke $F_{\rm mola}=-kx$ descreve aproximadamente o regime elástico linear. O sinal negativo indica que a força restauradora se opõe à deformação. A constante $k$ depende da geometria e do material; não é uma constante universal.
+
+\topic{Equilíbrio e energia armazenada}{Sob carregamento lento, a força externa equilibra a força da mola: $F_{\rm ext}-kx=0$. Portanto $x=F_{\rm ext}/k$. O trabalho incremental da força externa é $dW=kx\,dx$. Integrando a partir do comprimento natural,}
+\[
+U(x)=\int_0^xks\,ds=\frac12kx^2.
+\]
+O fator $1/2$ aparece porque a força cresce de zero até $kx$: o trabalho é a área de um triângulo, não do retângulo de altura igual à força final.
+
+\topic{Molas em série}{O conector ideal sem massa transmite a mesma força às duas molas. Cada alongamento é $x_1=F/k_1$ e $x_2=F/k_2$. Como os alongamentos se somam,}
+\[
+x=x_1+x_2=F\left(\frac1{k_1}+\frac1{k_2}\right).
+\]
+A mola equivalente deve obedecer $F=k_{\rm eq}x$. Comparando,
+\[
+\frac1{k_{\rm eq}}=\frac1{k_1}+\frac1{k_2}
+\quad\Longrightarrow\quad k_{\rm eq}=\frac{k_1k_2}{k_1+k_2}.
+\]
+O conjunto fica menos rígido que qualquer mola individual. Para molas iguais de rigidez $k$, a rigidez equivalente é $k/2$.
+
+\topic{Molas em paralelo}{Os extremos comuns impõem o mesmo alongamento $x$. As forças das molas se somam:}
+\[
+F=F_1+F_2=k_1x+k_2x=(k_1+k_2)x
+\quad\Longrightarrow\quad k_{\rm eq}=k_1+k_2.
+\]
+O conjunto fica mais rígido. Para a mesma força total, alonga menos que cada mola isolada. Se as molas forem diferentes, suas forças também serão diferentes, embora seus alongamentos sejam iguais.
+
+\textbf{Limites do modelo.} Nas três cenas de elasticidade, a força varia lentamente e a inércia é desprezada. A oscilação livre aparece separadamente no tema de energia. Se houver deformação permanente, folga, atrito interno ou alongamentos fora da região linear, uma rigidez constante já não descreve adequadamente o sistema.
 
 \newpage
 \exercise{01 / Aceleração constante}{O que muda a cada segundo?}
@@ -227,6 +521,150 @@ K_f=\tfrac12(0{,}50)(-0{,}40)^2+\tfrac12(0{,}30)(2)^2=0{,}64\,\mathrm J.
 A energia cinética diminui $0{,}96\,\mathrm J$. Essa energia pode virar deformação, calor e som; não houve perda da energia total do sistema e de seu entorno.
 
 \newpage
+\exercise{06 / Soma e produto de vetores}{Exercício adicional do laboratório}
+\textbf{Enunciado.} Considere $\vec A=(3,0,0)\,\mathrm m$ e $\vec B=(0,2,2)\,\mathrm m$. Determine a soma, seu módulo, o produto escalar e o ângulo entre os vetores.
+
+\textbf{1. Some componente a componente.}
+\[
+\vec R=\vec A+\vec B=(3,2,2)\,\mathrm m.
+\]
+\textbf{2. Use a ortogonalidade dos eixos.}
+\[
+|\vec R|=\sqrt{3^2+2^2+2^2}=\sqrt{17}\,\mathrm m\approx4{,}12\,\mathrm m.
+\]
+Não some os módulos: $|\vec A|+|\vec B|=3+\sqrt8\approx5{,}83\,\mathrm m$, que é maior que o módulo da soma.
+
+\textbf{3. Calcule o produto escalar pelas componentes.}
+\[
+\vec A\cdot\vec B=3(0)+0(2)+0(2)=0\,\mathrm{m^2}.
+\]
+Como ambos são não nulos, $AB\cos\theta=0$ exige $\cos\theta=0$. Logo, $\theta=90^\circ$.
+\result{A soma é $(3,2,2)\,\mathrm m$, seu módulo é $4{,}12\,\mathrm m$ e os vetores são perpendiculares.}
+
+\textbf{Interpretação.} A aponta ao longo do eixo $x$; B está inteiramente no plano $yz$. Todo vetor desse plano é perpendicular ao eixo $x$. Girar a câmera não muda essa relação geométrica, embora as setas projetadas na tela possam parecer formar outro ângulo.
+
+\textbf{Variação para testar.} No produto escalar, tome $A=3\,\mathrm m$, $B=2\,\mathrm m$ e $\theta=60^\circ$. A projeção é $B_\parallel=2\cos60^\circ=1\,\mathrm m$, e $\vec A\cdot\vec B=3\,\mathrm{m^2}$. Se o ângulo virar $120^\circ$, ambos os resultados trocam de sinal.
+
+\textbf{Referência conceitual.} Capítulo 1, seções 1.7--1.10. Enunciado e solução elaborados para este laboratório; não correspondem a um exercício numerado do livro.
+
+\newpage
+\exercise{07 / Duas órbitas}{Exercício adicional do laboratório}
+\textbf{Enunciado.} Duas partículas percorrem órbitas de raios $2\,\mathrm m$ e $4\,\mathrm m$, ambas com rapidez $3\,\mathrm{m/s}$. Determine a aceleração centrípeta, a velocidade angular e o período de cada uma.
+
+\textbf{1. Aceleração centrípeta.} Use $a_c=v^2/r$:
+\[
+a_i=\frac{3^2}{2}=4{,}50\,\mathrm{m/s^2},\qquad
+a_e=\frac{3^2}{4}=2{,}25\,\mathrm{m/s^2}.
+\]
+\textbf{2. Velocidade angular.} Como $v=r\omega$:
+\[
+\omega_i=\frac32=1{,}50\,\mathrm{rad/s},\qquad
+\omega_e=\frac34=0{,}75\,\mathrm{rad/s}.
+\]
+\textbf{3. Período.} Uma volta exige $2\pi$ radianos:
+\[
+T_i=\frac{2\pi}{1{,}50}\approx4{,}19\,\mathrm s,\qquad
+T_e=\frac{2\pi}{0{,}75}\approx8{,}38\,\mathrm s.
+\]
+\result{A órbita interna exige o dobro da aceleração centrípeta e é completada na metade do tempo. A rapidez linear das duas partículas continua igual.}
+
+\textbf{Conferência dimensional.} $v^2/r$ tem unidade $(\mathrm{m^2/s^2})/\mathrm m=\mathrm{m/s^2}$. O período $2\pi r/v$ tem unidade de segundo.
+
+\textbf{Outra condição, outra conclusão.} Se as duas partículas tivessem $\omega=1\,\mathrm{rad/s}$, as rapidezes seriam $2$ e $4\,\mathrm{m/s}$ e as acelerações seriam $2$ e $4\,\mathrm{m/s^2}$. Agora a órbita externa teria a maior aceleração. Sempre declare o que foi mantido fixo.
+
+\textbf{Referência conceitual.} Capítulo 3, seção 3.4. Enunciado e solução adicionais do laboratório.
+
+\newpage
+\exercise{08 / Disco sob torque}{Exercício adicional do laboratório}
+\textbf{Enunciado.} Um disco uniforme de massa $2\,\mathrm{kg}$ e raio $1\,\mathrm m$ parte do repouso sob torque constante de $1\,\mathrm{N\,m}$. Determine, após $4\,\mathrm s$, sua velocidade angular, seu deslocamento angular e sua energia cinética de rotação.
+
+\textbf{1. Determine a resistência à mudança de rotação.}
+\[
+I=\frac12mR^2=\frac12(2)(1)^2=1\,\mathrm{kg\,m^2}.
+\]
+\textbf{2. Use a dinâmica angular.}
+\[
+\alpha=\frac{\tau}{I}=\frac11=1\,\mathrm{rad/s^2}.
+\]
+\textbf{3. Integre a aceleração constante.}
+\[
+\omega=\alpha t=4\,\mathrm{rad/s},\qquad
+\theta=\frac12\alpha t^2=8\,\mathrm{rad}.
+\]
+Esse deslocamento corresponde a $8/(2\pi)\approx1{,}27$ voltas, não a oito voltas.
+
+\textbf{4. Calcule a energia.}
+\[
+K=\frac12I\omega^2=\frac12(1)(4)^2=8\,\mathrm J.
+\]
+\result{$\omega=4\,\mathrm{rad/s}$, $\theta=8\,\mathrm{rad}$ e $K=8\,\mathrm J$.}
+
+\textbf{Conferência pelo trabalho.} Para torque constante em torno do mesmo eixo, $W=\tau\theta$. Portanto $W=(1)(8)=8\,\mathrm J$, igual ao aumento da energia cinética.
+
+\textbf{Por que o raio importa tanto?} Se o raio dobrar, mantendo massa e torque, $I$ quadruplica e $\alpha$ cai para um quarto. Depois do mesmo tempo, a velocidade angular também será quatro vezes menor. A massa total sozinha não caracteriza a inércia rotacional.
+
+\textbf{Referência conceitual.} Capítulos 9--10, seções 9.4, 10.2 e 10.4. Enunciado e solução adicionais do laboratório.
+
+\newpage
+\exercise{09 / Carga sobre uma viga}{Exercício adicional do laboratório}
+\textbf{Enunciado.} Uma viga horizontal sem massa de $4\,\mathrm m$ está apoiada nas duas extremidades. Uma carga de $4\,\mathrm{kg}$ está a $3\,\mathrm m$ da extremidade esquerda. Determine as reações dos apoios. Use $g=9{,}80\,\mathrm{m/s^2}$.
+
+\textbf{1. Some as forças verticais.}
+\[
+R_A+R_B=mg=(4)(9{,}80)=39{,}2\,\mathrm N.
+\]
+\textbf{2. Calcule os torques em torno de A.} A força $R_A$ passa pela origem escolhida e não contribui para o torque:
+\[
+R_B(4)-(39{,}2)(3)=0.
+\]
+\[
+R_B=\frac{39{,}2\times3}{4}=29{,}4\,\mathrm N.
+\]
+\textbf{3. Retorne à soma das forças.}
+\[
+R_A=39{,}2-29{,}4=9{,}8\,\mathrm N.
+\]
+\result{O apoio esquerdo exerce $9{,}8\,\mathrm N$ e o direito $29{,}4\,\mathrm N$, ambos para cima.}
+
+\textbf{Conferência por outro ponto.} Em torno de B, o peso está a $1\,\mathrm m$ e a reação esquerda está a $4\,\mathrm m$. Os torques se cancelam porque $(39{,}2)(1)=(9{,}8)(4)$.
+
+\textbf{Interpretação.} A carga fica mais perto de B, então B recebe a maior parcela da carga. Se a carga estivesse no centro, os apoios dividiriam o peso igualmente. Se a viga tivesse peso próprio, seria necessário acrescentá-lo ao diagrama, aplicado em seu centro de gravidade.
+
+\textbf{No site.} O simulador usa $g=9{,}81\,\mathrm{m/s^2}$, por isso suas leituras para esses dados são $R_A=9{,}81\,\mathrm N$ e $R_B=29{,}43\,\mathrm N$. A diferença é apenas a escolha numérica de $g$.
+
+\textbf{Referência conceitual.} Capítulo 11, seções 11.1--11.3. Enunciado e solução adicionais do laboratório.
+
+\newpage
+\exercise{10 / Associações de molas}{Exercício adicional do laboratório}
+\textbf{Enunciado.} Duas molas ideais têm constantes $k_1=20\,\mathrm{N/m}$ e $k_2=40\,\mathrm{N/m}$. Uma força externa total de $6\,\mathrm N$ é aplicada lentamente. Compare os alongamentos nas montagens em série e em paralelo.
+
+\textbf{1. Série: mesma força, alongamentos diferentes.}
+\[
+k_{\rm eq,s}=\frac{k_1k_2}{k_1+k_2}=\frac{20(40)}{60}=\frac{40}{3}\,\mathrm{N/m}.
+\]
+\[
+x_s=\frac{6}{40/3}=0{,}45\,\mathrm m.
+\]
+Individualmente, $x_1=6/20=0{,}30\,\mathrm m$ e $x_2=6/40=0{,}15\,\mathrm m$. Sua soma confere com o alongamento total.
+
+\textbf{2. Paralelo: mesmo alongamento, forças diferentes.}
+\[
+k_{\rm eq,p}=20+40=60\,\mathrm{N/m},\qquad x_p=\frac6{60}=0{,}10\,\mathrm m.
+\]
+As forças individuais são $F_1=k_1x_p=2\,\mathrm N$ e $F_2=k_2x_p=4\,\mathrm N$. Elas somam os $6\,\mathrm N$ aplicados.
+
+\textbf{3. Compare a energia armazenada.}
+\[
+U_s=\frac12k_{\rm eq,s}x_s^2=1{,}35\,\mathrm J,\qquad
+U_p=\frac12k_{\rm eq,p}x_p^2=0{,}30\,\mathrm J.
+\]
+\result{Em série, o conjunto alonga $0{,}45\,\mathrm m$; em paralelo, $0{,}10\,\mathrm m$. Sob a mesma força final, a montagem mais flexível armazena mais energia porque foi deformada por uma distância maior.}
+
+\textbf{A condição importa.} A comparação acima fixa a força final. Se o alongamento final fosse fixado, a montagem mais rígida armazenaria mais energia, pois $U=k_{\rm eq}x^2/2$. Essa é uma boa razão para identificar as variáveis controladas antes de tirar conclusões.
+
+\textbf{Referência conceitual.} Lei de Hooke e energia elástica, capítulos 7 e 11. As associações são aplicações adicionais elaboradas para este laboratório.
+
+\newpage
 {\LARGE\bfseries\color{ink}Roteiro de estudo e referências}\par
 \topic{Experimente antes de calcular}{Pause o site, avance uma etapa, faça uma previsão e compare com os valores. Os passos dividem a duração da experiência em 20 intervalos iguais. A duração varia conforme o fenômeno e os parâmetros.}
 \begin{enumerate}[leftmargin=*,itemsep=9pt]
@@ -240,7 +678,7 @@ A energia cinética diminui $0{,}96\,\mathrm J$. Essa energia pode virar deforma
 \topic{Mapa do livro}{Cap. 1: vetores; cap. 2: movimento retilíneo; cap. 3: movimento em duas ou três dimensões; caps. 4--5: leis de Newton e aplicações; caps. 6--7: trabalho e energia; cap. 8: momento e colisões; caps. 9--10: rotação; cap. 11: equilíbrio e elasticidade.}
 \topic{Referência bibliográfica}{YOUNG, Hugh D.; FREEDMAN, Roger A. \emph{Física I: Mecânica}. 14. ed. Tradução de Daniel Vieira; revisão técnica de Adir Moysés Luiz. São Paulo: Pearson Education do Brasil, 2016. ISBN 978-85-430-0568-3.}
 
-\textbf{Nota editorial.} Este material não reproduz as páginas nem as figuras do livro. Os cinco enunciados foram reescritos com os dados dos exemplos indicados; as soluções e os comentários são próprios. Os itens do roteiro são verificações adicionais do laboratório. Consulte o livro para o desenvolvimento completo dos temas.
+\textbf{Nota editorial.} Este material não reproduz as páginas nem as figuras do livro. Leis fundamentais, definições e relações empíricas não são tratadas como teoremas puramente matemáticos. Os cinco enunciados foram reescritos com os dados dos exemplos indicados; as soluções e os comentários são próprios. Os itens do roteiro são verificações adicionais do laboratório. Consulte o livro para o desenvolvimento completo dos temas.
 
 \vfill
 {\small\color{teal}Laboratório de Mecânica \textbullet\ Material de apoio em \LaTeX\ \textbullet\ Outubro de 2026}
