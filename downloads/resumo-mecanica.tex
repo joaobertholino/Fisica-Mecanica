@@ -1,0 +1,247 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern,amsmath,amssymb,geometry,xcolor,fancyhdr,enumitem,tikz,hyperref}
+\geometry{margin=2.1cm,headheight=15pt}
+\definecolor{teal}{HTML}{087F73}
+\definecolor{ink}{HTML}{19343C}
+\definecolor{pale}{HTML}{EDF5F1}
+\hypersetup{colorlinks=true,linkcolor=teal,urlcolor=teal,pdftitle={Mecânica: resumo e exercícios resolvidos},pdfauthor={Laboratório de Mecânica}}
+\pagestyle{fancy}\fancyhf{}\lhead{\small\textcolor{teal}{MECÂNICA / FÍSICA I}}\rhead{\small Resumo e exercícios}\cfoot{\small\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{7pt}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\newcommand{\topic}[2]{\par\vspace{5pt}{\large\bfseries\color{teal}#1}\par #2}
+\newcommand{\result}[1]{\par\colorbox{pale}{\parbox{\dimexpr\linewidth-2\fboxsep}{\vspace{4pt}\textbf{Resultado.} #1\vspace{4pt}}}\par}
+\newcommand{\source}[1]{{\small\textcolor{teal}{Referência: #1. Enunciado reescrito; dados preservados.}}\par}
+\newcommand{\exercise}[2]{{\LARGE\bfseries\color{ink}#1}\par\vspace{3pt}{\large #2}\par\vspace{5pt}}
+\begin{document}
+{\small\bfseries\color{teal}CADERNO DO LABORATÓRIO}\par
+{\Huge\bfseries\color{ink}A mecânica,\\passo a passo.}\par
+{\large Intuição, equações e exercícios resolvidos}\par
+\vspace{6pt}
+Este caderno acompanha as dez experiências do site. O conteúdo foi organizado a partir de \emph{Física I: Mecânica}, de Hugh D. Young e Roger A. Freedman, 14ª edição, Pearson, 2016. As explicações e soluções foram redigidas para este material; os cinco exemplos adaptados têm sua origem identificada. As páginas citadas são as páginas impressas do livro.
+
+\topic{1 / Vetores e movimento}{Um vetor reúne módulo, direção e sentido. Em uma base cartesiana ortogonal, cada componente representa uma projeção independente.}
+\[
+\vec r=x\hat\imath+y\hat\jmath+z\hat k,\qquad |\vec r|=\sqrt{x^2+y^2+z^2}.
+\]
+Velocidade mede a variação da posição; aceleração mede a variação da velocidade. Para aceleração \textbf{constante} em uma dimensão:
+\[
+v=v_0+at,\qquad x=x_0+v_0t+\tfrac12at^2,\qquad v^2=v_0^2+2a(x-x_0).
+\]
+O sinal da aceleração sozinho não diz se a rapidez aumenta: compare seu sinal com o da velocidade. Se os sinais forem opostos, a rapidez diminui até o corpo parar.
+
+\topic{2 / Projéteis e movimento circular}{Sem arrasto, o movimento horizontal de um projétil é uniforme, enquanto o vertical tem aceleração $-g$, com o eixo vertical orientado para cima.}
+\[
+x=v_0\cos\theta\,t,\qquad y=y_0+v_0\sin\theta\,t-\tfrac12gt^2.
+\]
+No topo, $v_y=0$, mas $v_x$ continua diferente de zero. Se o lançamento e a chegada estão na \textbf{mesma altura}, $R=v_0^2\sin(2\theta)/g$. Essa expressão não vale diretamente quando as alturas diferem.
+
+No movimento circular uniforme, a rapidez é constante, mas a direção da velocidade muda. A aceleração aponta para o centro:
+\[
+a_c=\frac{v^2}{r}=\omega^2r,\qquad T=\frac{2\pi r}{v}.
+\]
+\textbf{No site:} use a câmera 3D para enxergar os eixos. Avance por etapas e observe a direção das setas; as escalas de vetores diferentes podem ser distintas.
+
+\newpage
+{\LARGE\bfseries\color{ink}Forças, energia e sistemas}\par
+\topic{3 / Leis de Newton e atrito}{A resultante das forças determina a aceleração: $\sum\vec F=m\vec a$. Ação e reação atuam em corpos diferentes, portanto não se cancelam no diagrama de forças de um único corpo.}
+\[
+f_s\leq\mu_sN,\qquad f_c=\mu_cN.
+\]
+O atrito estático se ajusta até um limite; ele não é sempre igual a $\mu_sN$. Em um plano horizontal sem aceleração vertical e sem outras forças verticais, $N=mg$. No simulador, adotamos $\mu_s=\mu_c$ por simplicidade.
+\topic{4 / Trabalho e energia}{Trabalho transfere energia. O trabalho da força resultante modifica a energia cinética. Para uma força constante, $W=\vec F\cdot\Delta\vec r$.}
+\[
+K=\tfrac12mv^2,\quad U_g=mgy,\quad U_e=\tfrac12kx^2,\quad W_{\rm res}=\Delta K.
+\]
+Se só forças conservativas realizam trabalho, $K+U$ é constante. A energia potencial depende de um nível de referência; diferenças de energia potencial têm significado físico independente dessa escolha.
+\topic{5 / Momento linear e colisões}{O momento total de um sistema se conserva se o impulso externo for nulo. As forças internas redistribuem momento entre seus corpos.}
+\[
+\vec p=m\vec v,\qquad \vec J=\Delta\vec p,\qquad \sum\vec p_i=\sum\vec p_f.
+\]
+Em colisões elásticas, a energia cinética também se conserva. Em colisões perfeitamente inelásticas, os corpos ficam unidos. Energia total se conserva em ambos os casos; energia cinética pode virar energia interna. O coeficiente de restituição usado no site interpola esses casos em uma dimensão: $v_2-v_1=e(u_1-u_2)$.
+\topic{6 / Rotação, equilíbrio e elasticidade}{O torque mede a tendência de rotação. Para um corpo rígido em torno de um eixo fixo, $\sum\tau=I\alpha$. Para um disco uniforme, $I=\tfrac12mR^2$.}
+\[
+\vec\tau=\vec r\times\vec F,\qquad K_{\rm rot}=\tfrac12I\omega^2,\qquad
+\sum\vec F=0\ \text{e}\ \sum\vec\tau=0\quad\text{(equilíbrio).}
+\]
+Na lei de Hooke, $F_x=-kx$: a força restauradora se opõe à deformação. A animação de elasticidade representa equilíbrios sob carregamento lento, não uma oscilação livre.
+
+\textbf{Unidades SI:} posição em m; tempo em s; massa em kg; força em N; energia em J; torque em N\,m; ângulo em rad. Os exercícios seguintes usam $g=9{,}80\,\mathrm{m/s^2}$, como nos exemplos do livro. O site usa $9{,}81\,\mathrm{m/s^2}$; pequenas diferenças numéricas são esperadas.
+
+\newpage
+\exercise{01 / Aceleração constante}{O que muda a cada segundo?}
+\source{Exemplo 2.4, capítulo 2, p. 52}
+\textbf{Enunciado adaptado.} Uma motocicleta está inicialmente em $x_0=5{,}0\,\mathrm m$, com velocidade $v_0=15\,\mathrm{m/s}$ no sentido positivo. Sua aceleração é constante e igual a $4{,}0\,\mathrm{m/s^2}$. Determine (a) a posição e a velocidade após $2{,}0\,\mathrm s$ e (b) a posição quando a velocidade chegar a $25\,\mathrm{m/s}$.
+
+\textbf{1. Escolha o modelo.} A aceleração é constante, então podemos integrar a velocidade e usar as equações do movimento uniformemente variado. Todas as grandezas fornecidas têm sentido positivo.
+
+\textbf{2. Calcule a velocidade.} A cada segundo, a velocidade cresce $4{,}0\,\mathrm{m/s}$. Em dois segundos, cresce $8{,}0\,\mathrm{m/s}$:
+\[
+v(2)=15+4(2)=\boxed{23\,\mathrm{m/s}}.
+\]
+\textbf{3. Calcule a posição.} O deslocamento inclui a contribuição da velocidade inicial e a contribuição adicional da aceleração:
+\[
+x(2)=5+15(2)+\tfrac12(4)(2)^2=5+30+8=\boxed{43\,\mathrm m}.
+\]
+\textbf{4. Elimine o tempo na segunda pergunta.} A relação entre velocidade e posição fornece diretamente:
+\[
+x=x_0+\frac{v^2-v_0^2}{2a}
+=5+\frac{25^2-15^2}{2(4)}=\boxed{55\,\mathrm m}.
+\]
+\result{Após $2{,}0\,\mathrm s$, a moto está em $43\,\mathrm m$ e tem velocidade $23\,\mathrm{m/s}$. Ela chega a $25\,\mathrm{m/s}$ na posição $55\,\mathrm m$.}
+
+\textbf{Conferência.} O instante da segunda situação é $(25-15)/4=2{,}5\,\mathrm s$. Substituindo-o em $x(t)$, obtemos novamente $55\,\mathrm m$. A posição inicial não pode ser esquecida: posição não é a mesma coisa que deslocamento.
+
+\textbf{Conexão com o laboratório.} O simulador começa em $x_0=0$ e usa uma faixa menor de velocidades. Investigue o mesmo princípio com $v_0=3\,\mathrm{m/s}$ e $a=1\,\mathrm{m/s^2}$. Após $2\,\mathrm s$, você deve ler $x=8\,\mathrm m$ e $v=5\,\mathrm{m/s}$.
+
+\newpage
+\exercise{02 / Lançamento de uma janela}{Quando as alturas são diferentes}
+\source{Exemplo 3.9, capítulo 3, pp. 88--89}
+\textbf{Enunciado adaptado.} Uma bola parte de uma janela $8{,}0\,\mathrm m$ acima do solo, com velocidade inicial $10{,}0\,\mathrm{m/s}$ e direção $20^\circ$ abaixo da horizontal. Sem resistência do ar, qual é a distância horizontal até atingir o chão?
+
+\textbf{1. Defina os sinais.} Colocamos a origem na janela, $x$ horizontal para a frente e $y$ vertical para cima. Assim, o chão está em $y=-8{,}0\,\mathrm m$ e o ângulo inicial é $-20^\circ$.
+\[
+v_{0x}=10\cos20^\circ\approx9{,}397\,\mathrm{m/s},\qquad
+v_{0y}=-10\sin20^\circ\approx-3{,}420\,\mathrm{m/s}.
+\]
+\textbf{2. Encontre o tempo pela vertical.}
+\[
+-8=-3{,}420t-4{,}90t^2
+\quad\Longrightarrow\quad4{,}90t^2+3{,}420t-8=0.
+\]
+A raiz positiva é
+\[
+t=\frac{-3{,}420+\sqrt{3{,}420^2+4(4{,}90)(8)}}{9{,}80}
+\approx0{,}976\,\mathrm s.
+\]
+A outra raiz é negativa e não descreve o trecho posterior ao lançamento.
+
+\textbf{3. Use o movimento horizontal uniforme.}
+\[
+x=v_{0x}t\approx(9{,}397)(0{,}976)\approx\boxed{9{,}17\,\mathrm m}.
+\]
+\result{A bola atinge o chão a aproximadamente $9{,}2\,\mathrm m$ horizontalmente da janela, arredondando a dois algarismos significativos.}
+
+\textbf{Por que não usar a fórmula do alcance?} A expressão $R=v_0^2\sin(2\theta)/g$ pressupõe chegada na altura do lançamento. Aqui, a bola chega $8\,\mathrm m$ abaixo, então precisamos resolver a equação vertical completa.
+
+\textbf{Conexão com o laboratório.} A simulação de projéteis trata o caso de alturas iguais. O princípio de independência das componentes é o mesmo, mas o tempo final e as condições de contorno deste exercício são diferentes.
+
+\newpage
+\exercise{03 / Atrito e desaceleração}{Da distância de parada à força}
+\source{Exemplo 4.5, capítulo 4, pp. 124--125}
+\textbf{Enunciado adaptado.} Uma garrafa de $0{,}45\,\mathrm{kg}$ desliza sobre um balcão com velocidade inicial $2{,}8\,\mathrm{m/s}$. O atrito horizontal constante faz com que ela pare depois de $1{,}0\,\mathrm m$. Determine o módulo e o sentido da força de atrito.
+
+\textbf{1. Desenhe mentalmente as forças.} Peso e normal se equilibram na vertical. Após o impulso inicial, não há força aplicada para a frente: o atrito é a resultante horizontal e aponta contra o movimento.
+
+\textbf{2. Encontre a aceleração usando a distância.} Tome o sentido inicial do movimento como positivo. Como o atrito é constante, a aceleração é constante:
+\[
+v^2=v_0^2+2a\Delta x
+\quad\Longrightarrow\quad
+a=\frac{0-2{,}8^2}{2(1{,}0)}=-3{,}92\,\mathrm{m/s^2}.
+\]
+\textbf{3. Aplique a segunda lei de Newton.}
+\[
+F_x=ma=(0{,}45)(-3{,}92)=-1{,}764\,\mathrm N.
+\]
+O sinal negativo informa o sentido. O módulo é positivo:
+\[
+f=|F_x|\approx\boxed{1{,}8\,\mathrm N}.
+\]
+\result{O atrito tem módulo aproximado de $1{,}8\,\mathrm N$ e atua horizontalmente, no sentido oposto ao movimento inicial.}
+
+\textbf{Outra solução: energia.} O atrito remove a energia cinética inicial. Como é constante e contrário ao deslocamento,
+\[
+-f\Delta x=\Delta K=0-\tfrac12mv_0^2
+\quad\Longrightarrow\quad f=\frac{mv_0^2}{2\Delta x}=1{,}764\,\mathrm N.
+\]
+\textbf{Conferência física.} O tempo de parada é $t=-v_0/a\approx0{,}714\,\mathrm s$. A velocidade média durante a frenagem é $1{,}4\,\mathrm{m/s}$; multiplicada pelo tempo, fornece $1{,}0\,\mathrm m$.
+
+\textbf{Conexão com o laboratório.} A simulação de forças parte do repouso e mantém uma força aplicada. Este exemplo começa em movimento e retira a força inicial. Essa diferença altera o diagrama horizontal e deve ser considerada antes de escolher a equação.
+
+\newpage
+\exercise{04 / Energia e movimento circular}{A força normal pode superar o peso}
+\source{Exemplo 7.4, capítulo 7, pp. 230--231}
+\textbf{Enunciado adaptado.} Um conjunto pessoa--skate, tratado como partícula de massa $25{,}0\,\mathrm{kg}$, desce do repouso por uma rampa sem atrito em forma de um quarto de círculo de raio $3{,}00\,\mathrm m$. Determine a rapidez e a força normal na parte mais baixa.
+
+\textbf{1. Use energia para obter a rapidez.} A queda vertical é igual ao raio $R$. A normal é perpendicular ao movimento e não realiza trabalho. Assim, tomando $U=0$ na base:
+\[
+mgR=\tfrac12mv^2\quad\Longrightarrow\quad
+v=\sqrt{2gR}=\sqrt{2(9{,}80)(3{,}00)}\approx\boxed{7{,}67\,\mathrm{m/s}}.
+\]
+A massa se cancela. A rapidez depende da altura perdida, não do formato detalhado do caminho sem atrito.
+
+\textbf{2. Analise a direção radial na base.} O centro da curva fica acima da partícula. A aceleração centrípeta aponta para cima. Logo, a força normal precisa ser maior que o peso:
+\[
+N-mg=m\frac{v^2}{R}.
+\]
+Substituindo $v^2=2gR$:
+\[
+N=mg+m\frac{2gR}{R}=3mg=3(25{,}0)(9{,}80)=\boxed{735\,\mathrm N}.
+\]
+\result{Na base, a rapidez é $7{,}67\,\mathrm{m/s}$ e a normal é $735\,\mathrm N$, três vezes o peso do conjunto.}
+
+\textbf{Erro frequente.} Dizer que $N=mg$ só porque o contato é horizontal na base. A igualdade exigiria aceleração vertical nula. Aqui, a trajetória é curva e existe aceleração vertical para cima naquele instante.
+
+\textbf{Conferência.} $a_c=v^2/R=2g=19{,}6\,\mathrm{m/s^2}$. A resultante $N-mg=490\,\mathrm N$ dividida por $25{,}0\,\mathrm{kg}$ reproduz essa aceleração.
+
+\textbf{Conexão com o laboratório.} Combine as ideias das experiências de energia e movimento circular: a primeira fornece a rapidez; a segunda relaciona essa rapidez à aceleração radial.
+
+\newpage
+\exercise{05 / Colisão em uma dimensão}{Impulsos iguais, velocidades diferentes}
+\source{Exemplo 8.5, capítulo 8, p. 271}
+\textbf{Enunciado adaptado.} Em um trilho sem atrito, A tem massa $0{,}50\,\mathrm{kg}$ e velocidade inicial $+2{,}0\,\mathrm{m/s}$; B tem massa $0{,}30\,\mathrm{kg}$ e velocidade inicial $-2{,}0\,\mathrm{m/s}$. Após a colisão, B passa a $+2{,}0\,\mathrm{m/s}$. Calcule a velocidade final de A e compare as variações de momento e velocidade.
+
+\textbf{1. Conserve o momento total.} Como não há impulso externo horizontal,
+\[
+P_i=(0{,}50)(2{,}0)+(0{,}30)(-2{,}0)=0{,}40\,\mathrm{kg\,m/s}.
+\]
+\[
+0{,}40=0{,}50v_A+0{,}30(2{,}0)
+\quad\Longrightarrow\quad\boxed{v_A=-0{,}40\,\mathrm{m/s}}.
+\]
+A inverte o sentido do movimento.
+
+\textbf{2. Compare os impulsos.}
+\begin{align*}
+\Delta p_A&=0{,}50(-0{,}40-2{,}0)=-1{,}20\,\mathrm{kg\,m/s},\\
+\Delta p_B&=0{,}30(2{,}0-(-2{,}0))=+1{,}20\,\mathrm{kg\,m/s}.
+\end{align*}
+As variações são iguais em módulo e opostas, como exige a terceira lei durante o mesmo intervalo de interação.
+
+\textbf{3. Compare as variações de velocidade.}
+\[
+\Delta v_A=-2{,}40\,\mathrm{m/s},\qquad\Delta v_B=+4{,}00\,\mathrm{m/s}.
+\]
+A menor massa sofre maior variação de velocidade para o mesmo módulo de impulso.
+\result{$v_A=-0{,}40\,\mathrm{m/s}$. Os impulsos somam zero, mas as variações de velocidade não têm módulos iguais.}
+
+\textbf{A colisão é elástica?} Não:
+\[
+K_i=\tfrac12(0{,}50)(2)^2+\tfrac12(0{,}30)(-2)^2=1{,}60\,\mathrm J,
+\]
+\[
+K_f=\tfrac12(0{,}50)(-0{,}40)^2+\tfrac12(0{,}30)(2)^2=0{,}64\,\mathrm J.
+\]
+A energia cinética diminui $0{,}96\,\mathrm J$. Essa energia pode virar deformação, calor e som; não houve perda da energia total do sistema e de seu entorno.
+
+\newpage
+{\LARGE\bfseries\color{ink}Roteiro de estudo e referências}\par
+\topic{Experimente antes de calcular}{Pause o site, avance uma etapa, faça uma previsão e compare com os valores. Os passos dividem a duração da experiência em 20 intervalos iguais. A duração varia conforme o fenômeno e os parâmetros.}
+\begin{enumerate}[leftmargin=*,itemsep=9pt]
+\item \textbf{Vetores.} Escolha $(3,2,2)\,\mathrm m$. O módulo deve ser $\sqrt{17}\approx4{,}12\,\mathrm m$, independentemente do ângulo da câmera.
+\item \textbf{Projétil.} Com $18\,\mathrm{m/s}$ e $45^\circ$, o alcance no mesmo nível é aproximadamente $33{,}03\,\mathrm m$, usando $g=9{,}81\,\mathrm{m/s^2}$.
+\item \textbf{Forças.} Escolha $F=16\,\mathrm N$, $m=2\,\mathrm{kg}$ e $\mu=0{,}2$. O atrito é $3{,}924\,\mathrm N$ e a aceleração é $6{,}038\,\mathrm{m/s^2}$.
+\item \textbf{Rotação.} Para um disco de $2\,\mathrm{kg}$ e raio $1\,\mathrm m$, $I=1\,\mathrm{kg\,m^2}$. Um torque de $1\,\mathrm{N\,m}$ produz $\alpha=1\,\mathrm{rad/s^2}$.
+\item \textbf{Equilíbrio.} Uma massa de $4\,\mathrm{kg}$ a $1\,\mathrm m$ do apoio equilibra uma massa de $2\,\mathrm{kg}$ a $2\,\mathrm m$ do outro lado.
+\item \textbf{Elasticidade.} Com $k=40\,\mathrm{N/m}$ e força máxima de $12\,\mathrm N$, o alongamento máximo é $0{,}30\,\mathrm m$ e a energia máxima é $1{,}80\,\mathrm J$.
+\end{enumerate}
+\topic{Mapa do livro}{Cap. 1: vetores; cap. 2: movimento retilíneo; cap. 3: movimento em duas ou três dimensões; caps. 4--5: leis de Newton e aplicações; caps. 6--7: trabalho e energia; cap. 8: momento e colisões; caps. 9--10: rotação; cap. 11: equilíbrio e elasticidade.}
+\topic{Referência bibliográfica}{YOUNG, Hugh D.; FREEDMAN, Roger A. \emph{Física I: Mecânica}. 14. ed. Tradução de Daniel Vieira; revisão técnica de Adir Moysés Luiz. São Paulo: Pearson Education do Brasil, 2016. ISBN 978-85-430-0568-3.}
+
+\textbf{Nota editorial.} Este material não reproduz as páginas nem as figuras do livro. Os cinco enunciados foram reescritos com os dados dos exemplos indicados; as soluções e os comentários são próprios. Os itens do roteiro são verificações adicionais do laboratório. Consulte o livro para o desenvolvimento completo dos temas.
+
+\vfill
+{\small\color{teal}Laboratório de Mecânica \textbullet\ Material de apoio em \LaTeX\ \textbullet\ Outubro de 2026}
+\end{document}
